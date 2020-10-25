@@ -8,17 +8,17 @@ import (
 // +genclient:noStatus
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// NeworkSpec 定义了Network资源的spec声明字段
-type NetworkSpec struct {
-	Cidr    string `json:"cidr"`
-	Gateway string `json:"gateway"`
-}
-
 // Network 定义一个网络资源
 type Network struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 	Spec              NetworkSpec `json:"spec"`
+}
+
+// NeworkSpec 定义了Network资源的spec声明字段
+type NetworkSpec struct {
+	Cidr    string `json:"cidr"`
+	Gateway string `json:"gateway"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
